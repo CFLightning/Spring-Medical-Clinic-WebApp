@@ -28,7 +28,7 @@ public class PatientService implements IPatientService {
 	public void createPatient() {
 		PatientEntity patient = new PatientEntity();
 		patient.setName("Janusz");
-		patient.setSurname("Cebula");
+		patient.setSurname("Cebularz");
 		patientRepository.save(patient);
 	}
 
