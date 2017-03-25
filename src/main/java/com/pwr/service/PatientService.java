@@ -25,11 +25,10 @@ public class PatientService implements IPatientService {
 	}
 
 	@Override
-	public void createPatient() {
-		PatientEntity patient = new PatientEntity();
-		patient.setName("Janusz");
-		patient.setSurname("Cebula");
+	public void createPatient(PatientEntity patient) {
+		//PatientEntity patient = new PatientEntity();
+		//patient.setName("Janusz");
+		//patient.setSurname("Cebula");
 		patientRepository.save(patient);
 	}
-
 }
