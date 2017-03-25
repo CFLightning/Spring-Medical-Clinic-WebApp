@@ -25,9 +25,12 @@ public class PatientController {
 		return patientService.findAllPatients();
 	}
 	
-	@RequestMapping(path = "create", method = RequestMethod.GET)
+	@RequestMapping(path = "create", method = RequestMethod.GET) //tutaj post? powinno przyjąc JSON i dodać do repo, konieczna metoda post?
 	public void createPatient() {
 		patientService.createPatient();
 	}
 
+	/*public String createPatient(@ModelAttribute PatientTO patient) {
+		return "result";
+	}*/
 }
