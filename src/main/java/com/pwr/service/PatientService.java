@@ -32,10 +32,10 @@ public class PatientService implements IPatientService {
 		patientRepository.save(patient);
 	}
 	
-	@Override
-	public void updatePatient(PatientEntity patient) {
-		patientRepository.save(patient);
-	}
+	//@Override
+	//public void updatePatient(PatientEntity patient) {
+	//	patientRepository.save(patient);
+	//}
 		
 
 	@Override

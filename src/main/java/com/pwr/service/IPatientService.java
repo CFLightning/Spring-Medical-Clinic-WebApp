@@ -11,7 +11,7 @@ public interface IPatientService {
 
 	public void createPatient(PatientEntity patient);
 
-	void updatePatient(PatientEntity patient);
+	//void updatePatient(PatientEntity patient);
 
 	public void update(PatientEntity patient);
 
