@@ -44,7 +44,7 @@ public class PatientController {
 	
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
 	@ResponseBody 
-	public PatientEntity deletePatient(@PathVariable Long id)
+	public PatientEntity deletePatient(@PathVariable PatientEntity id)
 	{
 		patientService.delete(id);
 		return null;

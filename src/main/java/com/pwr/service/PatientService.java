@@ -45,8 +45,8 @@ public class PatientService implements IPatientService {
 	}
 
 	@Override
-	public void delete(Long id) {
-		// TODO Auto-generated method stub
+	public void delete(PatientEntity patient){
+		patientRepository.delete(patient);
 		
 	}
 }

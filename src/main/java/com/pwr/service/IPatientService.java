@@ -15,5 +15,6 @@ public interface IPatientService {
 
 	public void update(PatientEntity patient);
 
-	public void delete(Long id);
+	void delete(PatientEntity patient);
+
 }
