@@ -10,4 +10,10 @@ public interface IPatientService {
 	public List<PatientTO> findAllPatients();
 
 	public void createPatient(PatientEntity patient);
+
+	void updatePatient(PatientEntity patient);
+
+	public void update(PatientEntity patient);
+
+	public void delete(Long id);
 }

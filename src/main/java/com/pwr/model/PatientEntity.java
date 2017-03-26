@@ -10,7 +10,7 @@ public class PatientEntity {
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	public Long id;
 	@Column
 	private String name;
 	@Column

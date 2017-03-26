@@ -31,4 +31,24 @@ public class PatientService implements IPatientService {
 		//patient.setSurname("Cebula");
 		patientRepository.save(patient);
 	}
+	
+	@Override
+	public void updatePatient(PatientEntity patient) {
+		patientRepository.save(patient);
+	}
+		
+
+	@Override
+	public void update(PatientEntity patient) {
+		patientRepository.save(patient);
+		
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+	
+
