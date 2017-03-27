@@ -1,4 +1,4 @@
-package com.pwr.controller;
+Papackage com.pwr.controller;
 
 import java.util.List;
 
@@ -26,41 +26,28 @@ public class PatientController {
 	public List<PatientTO> findAllPatients() {
 		return patientService.findAllPatients();
 	}
-	
+
 	@RequestMapping(path = "create", method = RequestMethod.POST) //Działa POST, dodaje pacjentów do bazy
 	public PatientEntity createPatient(@RequestBody PatientEntity patient) {
 		patientService.createPatient(patient);
 		return patient;
-	
+
 	}
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT) //Działa PUT, zmienia dane wybranego pacjenta po ID
-	@ResponseBody 
+	@ResponseBody
 	public PatientEntity updatePatient(@PathVariable Long id, @RequestBody PatientEntity patient)
 	{
 		patient.setId(id);
-		patientService.update(patient);
+		patientService.updatePatient(patient);
 		return patient;
 	}
-	
+
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
-	@ResponseBody 
+	@ResponseBody
 	public PatientEntity deletePatient(@PathVariable PatientEntity id)
 	{
-		patientService.delete(id);
+		patientService.deletePatient(id);
 		return null;
 	}
-	
+
 }
-	
-	/*@RequestMapping(path = "test", method = RequestMethod.POST) 
-	public PatientEntity test(@RequestBody PatientEntity patient) {  //funkcja testowa, nie usuwam, potem sie moze przydac
-		patientService.testPatient(patient);
-		return patient;
-	}*/
-		
-	
-
-	/*public PatientEntity createPatient() {
-		return patientService.createPatient();
-	}*/
-
