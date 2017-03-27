@@ -1,4 +1,4 @@
-Papackage com.pwr.controller;
+package com.pwr.controller;
 
 import java.util.List;
 
