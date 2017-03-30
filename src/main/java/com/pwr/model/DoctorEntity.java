@@ -15,6 +15,8 @@ public class DoctorEntity {
 	private String name;
 	@Column
 	private String surname;
+	@Column
+	private String email;
 	
 	public Long getId() {
 		return id;
@@ -33,6 +35,13 @@ public class DoctorEntity {
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }
