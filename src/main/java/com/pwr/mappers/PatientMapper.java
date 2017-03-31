@@ -3,7 +3,7 @@ package com.pwr.mappers;
 import com.pwr.model.PatientEntity;
 import com.pwr.model.PatientTO;
 
-public final class PatientMapper {
+public final class PatientMapper { //Automatyczne mappery
 	
 	private PatientMapper() {
 		

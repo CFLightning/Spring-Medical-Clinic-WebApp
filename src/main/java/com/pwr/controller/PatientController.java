@@ -17,6 +17,7 @@ import com.pwr.service.IPatientService;
 
 @RestController
 @RequestMapping(path = "patient")
+//@Transactional - operacje muszą byc na zasadzie transakcji
 public class PatientController {
 
 	@Autowired
@@ -27,6 +28,7 @@ public class PatientController {
 		return patientService.findAllPatients();
 	}
 
+	//@Transactional na metodzie - tylko jedna metoda jest transakcyjna
 	@RequestMapping(path = "create", method = RequestMethod.POST) //Działa POST, dodaje pacjentów do bazy
 	public PatientEntity createPatient(@RequestBody PatientEntity patient) {
 		patientService.createPatient(patient);
@@ -37,9 +39,10 @@ public class PatientController {
 	@ResponseBody
 	public PatientEntity updatePatient(@PathVariable Long id, @RequestBody PatientEntity patient)
 	{
-		patient.setId(id);
-		patientService.updatePatient(patient);
-		return patient;
+		patient.setId(id); //to niepotrzebne
+		patientService.updatePatient(patient); //nie podajemy id w URL 
+		return patient; //lista doktorów, wybierasz doktora w Angularze, podać PUT ENCJĘ nie id
+		// nie chcemy udostępniać encji, podajemy TO, Nawet jak mają być takie same
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
