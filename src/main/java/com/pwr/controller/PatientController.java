@@ -30,7 +30,7 @@ public class PatientController {
 
 	//@Transactional na metodzie - tylko jedna metoda jest transakcyjna
 	@RequestMapping(path = "create", method = RequestMethod.POST) //Działa POST, dodaje pacjentów do bazy
-	public PatientEntity createPatient(@RequestBody PatientEntity patient) {
+	public PatientEntity createPatient(@RequestBody PatientEntity patient) { //Przyjmować i oddawać TO zamiast Entity !!
 		patientService.createPatient(patient);
 		return patient;
 

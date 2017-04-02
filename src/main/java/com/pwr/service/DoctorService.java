@@ -16,14 +16,14 @@ public class DoctorService implements IDoctorService {
 
 	@Autowired
 	private DoctorRepository doctorRepository;
-	
+
 	@Override
 	public List<DoctorTO> findAllDoctors() {
 		List<DoctorTO> result = new ArrayList<>();
 		doctorRepository.findAll().forEach(doctorEntity -> result.add(DoctorMapper.mapDoctor(doctorEntity)));
 		return result;
 	}
-	
+
 	@Override
 	public void createDoctor(DoctorEntity doctor) {
 		doctorRepository.save(doctor);
@@ -36,7 +36,7 @@ public class DoctorService implements IDoctorService {
 	}
 
 	@Override
-	public void deleteDoctor(DoctorEntity doctor){
+	public void deleteDoctor(DoctorEntity doctor) {
 		doctorRepository.delete(doctor);
 
 	}
