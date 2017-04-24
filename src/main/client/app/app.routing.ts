@@ -2,6 +2,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {BookOverviewComponent} from './book-mgmt/book-overview/book-overview.component';
 import {BookDetailsComponent} from './book-mgmt/book-details/book-details.component';
+import {PatientOverviewComponent} from './patient-mgmt/patient-overview/patient-overview.component';
 
 const appRoutes: Routes = [
   {
@@ -15,6 +16,10 @@ const appRoutes: Routes = [
   {
     path: 'book-mgmt/book/:bookId',
     component: BookDetailsComponent
+  },
+  {
+    path: 'patient-mgmt/patients',
+    component: PatientOverviewComponent
   },
   {
     path: '',

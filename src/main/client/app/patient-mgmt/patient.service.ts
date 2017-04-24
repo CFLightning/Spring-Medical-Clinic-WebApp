@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class PatientService {
+  data: Array<Object>;
   private patients: Patient[] = [];
   // private sequencer: number = 1; // wykomentowałem, bo mamy id randomvalue w springu
 
-  findAllPatients(): Patient[] {
+  /*findAllPatients(): Patient[] {
     this.http.get('http://localhost:8080/patient/all')
       .map((res: Response) => res.json())
       .subscribe(
@@ -21,7 +23,30 @@ export class PatientService {
   }
   errorMsg(err: any) {
     console.error('Error: ' + err);
+  }*/
+ /* : Observable<Patient[]> {
+    return this.http.get('http://localhost:8080/patient/all')
+      .map(data => <Patient[]>data);
   }
+  
+   findAllPatients()
+      .map((user: Array<any>) => {
+        let result:Array<User> = [];
+        if (user) {
+          user.forEach((erg) => {
+            result.push(new User(erg.nickname, erg.id, erg.name, erg.nachname, erg.pictURL, erg.city ));
+          });
+        }
+        return result; // <<<=== missing return
+      })
+      .subscribe(user => this.user = user);
+  }*/
+
+  findAllPatients(): Observable<any> {
+    return this.http.get('http://localhost:8080/patient/all')
+      .map((res: Response) => res.json() + {});
+  }
+
   constructor (private http: Http) {}
 }
 

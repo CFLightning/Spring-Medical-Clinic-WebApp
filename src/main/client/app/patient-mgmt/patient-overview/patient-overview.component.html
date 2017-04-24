@@ -1,0 +1,25 @@
+<section class="container-fluid">
+  <section [hidden]="thereArePatientsToDisplay()">
+    <p>No patients available.</p> <!--<a routerLink="/patient-mgmt/patient">Add a new one</a>.</p>-->
+  </section>
+  <section [hidden]="!thereArePatientsToDisplay()">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+      	<th>Id</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let patient of currentPatients">
+        <td>{{patient.id}}</td>
+        <td>{{patient.name}}</td>
+        <td>{{patient.surname}}</td>
+        <!--<td><a [routerLink]="['/patient-mgmt/patient', patient.id]">Details</a></td>-->
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

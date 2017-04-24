@@ -11,7 +11,6 @@ public final class PatientMapper { //Automatyczne mappery
 	
 	public static PatientTO mapPatient(PatientEntity patientEntity) {
 		PatientTO patient = new PatientTO();
-		patient.setId(patientEntity.getId());
 		patient.setName(patientEntity.getName());
 		patient.setSurname(patientEntity.getSurname());
 		return patient;
