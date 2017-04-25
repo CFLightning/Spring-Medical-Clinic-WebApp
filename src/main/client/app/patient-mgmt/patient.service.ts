@@ -50,9 +50,16 @@ export class PatientService {
     //let patients$ = this.http
     //  .get('http://localhost:8080/patient/all', {headers: this.getHeaders()})
   }
+  
+ createPatient(): Observable<any> {
+      let headers = new Headers();
+      headers.append('Accept', 'application/json');
+      return this.http.post('http://localhost:8080/patient/create', {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).map((res: Response) => res.json());
+  }
 
   constructor(private http: Http) { }
 }
+
 
 export class Patient {
   private _id: number;

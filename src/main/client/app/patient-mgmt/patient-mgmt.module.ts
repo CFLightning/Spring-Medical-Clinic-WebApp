@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {PatientOverviewComponent} from './patient-overview/patient-overview.component';
 import {PatientService} from './patient.service';
-// import {BookDetailsComponent} from './book-details/book-details.component';
+//import {PatientDetailsComponent} from './patient-details/patient-details.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
