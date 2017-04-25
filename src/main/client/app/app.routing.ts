@@ -22,9 +22,9 @@ const appRoutes: Routes = [
     component: PatientOverviewComponent
   },
   {
-      path: 'patient-mgmt/patient',
-      component: BookDetailsComponent
-    },
+    path: 'patient-mgmt/patient',
+    component: BookDetailsComponent
+  },
   {
     path: '',
     redirectTo: '/book-mgmt/books',

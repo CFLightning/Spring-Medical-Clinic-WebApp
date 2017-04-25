@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
@@ -24,6 +25,7 @@ export class PatientService {
   errorMsg(err: any) {
     console.error('Error: ' + err);
   }*/
+
   /* : Observable<Patient[]> {
      return this.http.get('http://localhost:8080/patient/all')
        .map(data => <Patient[]>data);
@@ -42,15 +44,23 @@ export class PatientService {
        .subscribe(user => this.user = user);
    }*/
 
-  findAllPatients(): Observable<any> {
+  /*findAllPatients(): Observable<any> {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
     return this.http.get('http://localhost:8080/patient/all', { headers: headers })
       .map((res: Response) => res.json());
-    //let patients$ = this.http
+    // let patients$ = this.http
     //  .get('http://localhost:8080/patient/all', {headers: this.getHeaders()})
+  }*/
+
+  findAllPatients(): Promise<Patient[]> {
+    return this.http.get('http://localhost:8080/patient/all')
+      .toPromise()
+      .then(response => response.json().data as Patient[]);
+      // .catch(error);
   }
-  
+
  createPatient(): Observable<any> {
       let headers = new Headers();
       headers.append('Accept', 'application/json');

@@ -6,13 +6,13 @@ import {PatientService, Patient} from '../patient.service';
   template: require('./patient-overview.component.html!text')
 } as Component)
 export class PatientOverviewComponent implements OnInit {
-  public currentPatients: Patient[];
+  public currentPatients: Promise<Patient[]>;
 
   constructor(private patientService: PatientService) {
   }
 
-  ngOnInit() {
-    this.patientService.findAllPatients()
+  ngOnInit(): void {
+    /*this.patientService.findAllPatients()
       .map((currentPatients: Array<any>) => {
         let result: Array<Patient> = [];
         if (currentPatients) {
@@ -22,12 +22,14 @@ export class PatientOverviewComponent implements OnInit {
           }
           return result;
        })
-      .subscribe(currentPatients => this.currentPatients = currentPatients);
+      .subscribe(data => this.currentPatients = data);
     // this.currentPatients = this.patientService.findAllPatients();
+    }*/
+    this.currentPatients = this.patientService.findAllPatients();
   }
 
-  thereArePatientsToDisplay(): boolean {
-    return this.currentPatients && this.currentPatients.length > 0;
-  }
+  // thereArePatientsToDisplay(): boolean {
+  //  return this.currentPatients && this.currentPatients.length > 0;
+  // }
 }
 
