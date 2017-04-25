@@ -61,10 +61,13 @@ export class PatientService {
       // .catch(error);
   }
 
- createPatient(): Observable<any> {
+ createPatient(name: string): Promise<Patient[]> {
       let headers = new Headers();
-      headers.append('Accept', 'application/json');
-      return this.http.post('http://localhost:8080/patient/create', {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).map((res: Response) => res.json());
+      return this.http
+      .post('http://localhost:8080/patient/create', JSON.stringify({name: name}), {headers: headers})
+      .toPromise()
+      .then(response => response.json().data as Patient[]);
+      //.catch(this.handleError);
   }
 
   constructor(private http: Http) { }
