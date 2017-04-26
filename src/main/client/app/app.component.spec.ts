@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 import {AppComponent} from './app.component';
 import {TestBed, async} from '@angular/core/testing';
 import {GeneralModule} from './general/general.module';
