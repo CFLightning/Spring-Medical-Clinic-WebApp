@@ -20,6 +20,9 @@ const appRoutes: Routes = [
   {
     path: 'patient-mgmt/patients',
     component: PatientOverviewComponent
+    resolve: {
+      patients: 
+    }
   },
   {
     path: 'patient-mgmt/patient',

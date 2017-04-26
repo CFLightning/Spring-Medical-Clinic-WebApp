@@ -1,8 +1,5 @@
 <section class="container-fluid">
-  <section [hidden]="thereArePatientsToDisplay()">
-    <p>No patients available.</p> <!--<a routerLink="/patient-mgmt/patient">Add a new one</a>.</p>-->
-  </section>
-  <section [hidden]="!thereArePatientsToDisplay()">
+  <section>
     <table class="table table-striped">
       <thead>
       <tr>

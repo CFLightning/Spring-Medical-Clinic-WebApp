@@ -44,22 +44,19 @@ export class PatientService {
        .subscribe(user => this.user = user);
    }*/
 
-  /*findAllPatients(): Observable<any> {
-    let headers = new Headers();
-    headers.append('Accept', 'application/json');
-    headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:8080/patient/all', { headers: headers })
+  findAllPatients(): Observable<any> {
+    return this.http.get('http://localhost:8080/patient/all')
       .map((res: Response) => res.json());
     // let patients$ = this.http
     //  .get('http://localhost:8080/patient/all', {headers: this.getHeaders()})
-  }*/
-
-  findAllPatients(): Promise<Patient[]> {
-    return this.http.get('http://localhost:8080/patient/all')
-      .toPromise()
-      .then(response => response.json().data as Patient[]);
-      // .catch(error);
   }
+
+//  findAllPatients(): Promise<Patient[]> {
+//    return this.http.get('http://localhost:8080/patient/all')
+//      .toPromise()
+//      .then(response => response.json().data as Patient[]);
+//      // .catch(error);
+//  }
 
  createPatient(name: string): Promise<Patient[]> {
       let headers = new Headers();
