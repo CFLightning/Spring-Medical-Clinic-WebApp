@@ -27,7 +27,8 @@ public class DoctorController {
 	}
 	
 	@RequestMapping(path = "create", method = RequestMethod.POST) //Działa POST, dodaje lekarzy do bazy
-	public DoctorEntity createDoctor(@RequestBody DoctorEntity doctor) {
+	public DoctorTO createDoctor(@RequestBody DoctorTO doctor) 
+	{
 		doctorService.createDoctor(doctor);
 		return doctor;
 

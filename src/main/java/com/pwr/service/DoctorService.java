@@ -26,15 +26,10 @@ public class DoctorService implements IDoctorService {
 	}
 
 	@Override
-	public void createDoctor(DoctorEntity doctor) {
-		doctorRepository.save(doctor);
+	public void createDoctor(DoctorTO doctor) {
+		DoctorEntity doctorCreate = DoctorTOMapper.mapDoctorTO(doctor);
+		doctorRepository.save(doctorCreate);
 	}
-
-	/*@Override
-	public void updateDoctor(DoctorEntity doctor) {
-		doctorRepository.save(doctor);
-
-	}*/
 
 	@Override
 	public void updateDoctor(DoctorTO doctor) {

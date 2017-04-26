@@ -9,7 +9,7 @@ public interface IDoctorService {
 
 	public List<DoctorTO> findAllDoctors();
 	
-	public void createDoctor(DoctorEntity doctor);
+	public void createDoctor(DoctorTO doctor);
 
 	public void updateDoctor(DoctorTO doctor);
 
