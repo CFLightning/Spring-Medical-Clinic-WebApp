@@ -11,6 +11,7 @@ public final class PatientTOMapper {
 	
 	public static PatientEntity mapPatientTO(PatientTO patientUpdate) {
 		PatientEntity patient = new PatientEntity();
+		patient.setId(patientUpdate.getId());
 		patient.setName(patientUpdate.getName());
 		patient.setSurname(patientUpdate.getSurname());
 		return patient;

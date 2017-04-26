@@ -1,4 +1,5 @@
-import { Patient, PatientService } from './patient.service';
+import { Patient } from './patient-class';
+import { PatientService } from './patient.service';
 import { Injectable } from '@angular/core';
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';

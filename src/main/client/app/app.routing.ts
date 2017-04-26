@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {BookOverviewComponent} from './book-mgmt/book-overview/book-overview.component';
 import {BookDetailsComponent} from './book-mgmt/book-details/book-details.component';
 import {PatientOverviewComponent} from './patient-mgmt/patient-overview/patient-overview.component';
+import { PatientResolver } from './patient-mgmt/patient-resolver';
 
 const appRoutes: Routes = [
   {
@@ -19,9 +20,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'patient-mgmt/patients',
-    component: PatientOverviewComponent
+    component: PatientOverviewComponent,
     resolve: {
-      patients: 
+      patients: PatientResolver
     }
   },
   {
