@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pwr.mappers.DoctorMapper;
+import com.pwr.mappers.DoctorTOMapper;
 import com.pwr.model.DoctorTO;
 import com.pwr.model.DoctorEntity;
 import com.pwr.repository.DoctorRepository;
@@ -29,12 +30,18 @@ public class DoctorService implements IDoctorService {
 		doctorRepository.save(doctor);
 	}
 
-	@Override
+	/*@Override
 	public void updateDoctor(DoctorEntity doctor) {
 		doctorRepository.save(doctor);
 
-	}
+	}*/
 
+	@Override
+	public void updateDoctor(DoctorTO doctor) {
+		DoctorEntity doctorUpdate = DoctorTOMapper.mapDoctorTO(doctor);
+		doctorRepository.save(doctorUpdate);
+	}
+	
 	@Override
 	public void deleteDoctor(DoctorEntity doctor) {
 		doctorRepository.delete(doctor);

@@ -11,7 +11,7 @@ public interface IDoctorService {
 	
 	public void createDoctor(DoctorEntity doctor);
 
-	public void updateDoctor(DoctorEntity doctor);
+	public void updateDoctor(DoctorTO doctor);
 
 	public void deleteDoctor(DoctorEntity doctor);
 }

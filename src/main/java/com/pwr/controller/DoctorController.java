@@ -32,11 +32,11 @@ public class DoctorController {
 		return doctor;
 
 	}
+	
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT) //Działa PUT, zmienia dane wybranego lekarza po ID
 	@ResponseBody
-	public DoctorEntity updateDoctor(@PathVariable Long id, @RequestBody DoctorEntity doctor)
+	public DoctorTO updateDoctor(@PathVariable Long id, @RequestBody DoctorTO doctor)
 	{
-		doctor.setId(id);
 		doctorService.updateDoctor(doctor);
 		return doctor;
 	}
