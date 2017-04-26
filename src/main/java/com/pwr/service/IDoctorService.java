@@ -3,7 +3,6 @@ package com.pwr.service;
 import java.util.List;
 
 import com.pwr.model.DoctorTO;
-import com.pwr.model.DoctorEntity;
 
 public interface IDoctorService {
 
@@ -13,5 +12,5 @@ public interface IDoctorService {
 
 	public void updateDoctor(DoctorTO doctor);
 
-	public void deleteDoctor(DoctorEntity doctor);
+	public void deleteDoctor(DoctorTO doctor);
 }

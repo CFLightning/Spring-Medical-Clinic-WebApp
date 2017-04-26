@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.pwr.model.PatientEntity;
 import com.pwr.model.PatientTO;
 import com.pwr.service.IPatientService;
 
@@ -30,16 +28,16 @@ public class PatientController {
 
 	//@Transactional na metodzie - tylko jedna metoda jest transakcyjna
 	@RequestMapping(path = "create", method = RequestMethod.POST) //Działa POST, dodaje pacjentów do bazy
-	public PatientEntity createPatient(@RequestBody PatientEntity patient) { //Przyjmować i oddawać TO zamiast Entity !!
+	public PatientTO createPatient(@RequestBody PatientTO patient)
+	{
 		patientService.createPatient(patient);
 		return patient;
 
 	}
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT) //Działa PUT, zmienia dane wybranego pacjenta po ID
 	@ResponseBody
-	public PatientEntity updatePatient(@PathVariable Long id, @RequestBody PatientEntity patient)
+	public PatientTO updatePatient(@PathVariable Long id, @RequestBody PatientTO patient)
 	{
-		patient.setId(id); //to niepotrzebne
 		patientService.updatePatient(patient); //nie podajemy id w URL 
 		return patient; //lista doktorów, wybierasz doktora w Angularze, podać PUT ENCJĘ nie id
 		// nie chcemy udostępniać encji, podajemy TO, Nawet jak mają być takie same
@@ -47,9 +45,9 @@ public class PatientController {
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
 	@ResponseBody
-	public PatientEntity deletePatient(@PathVariable PatientEntity id)
+	public PatientTO deletePatient(@PathVariable Long id, @RequestBody PatientTO patient)
 	{
-		patientService.deletePatient(id);
+		patientService.deletePatient(patient);
 		return null;
 	}
 

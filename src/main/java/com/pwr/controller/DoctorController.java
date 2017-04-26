@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pwr.service.IDoctorService;
 import com.pwr.model.DoctorTO;
-import com.pwr.model.DoctorEntity;
 
 @RestController
 @RequestMapping(path = "doctor")
@@ -44,9 +43,9 @@ public class DoctorController {
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego lekarza po ID
 	@ResponseBody
-	public DoctorEntity deleteDoctor(@PathVariable DoctorEntity id)
+	public DoctorTO deleteDoctor(@PathVariable Long id, @RequestBody DoctorTO doctor)
 	{
-		doctorService.deleteDoctor(id);
+		doctorService.deleteDoctor(doctor);
 		return null;
 	}
 	

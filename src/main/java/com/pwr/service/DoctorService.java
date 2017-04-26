@@ -38,8 +38,8 @@ public class DoctorService implements IDoctorService {
 	}
 	
 	@Override
-	public void deleteDoctor(DoctorEntity doctor) {
-		doctorRepository.delete(doctor);
-
+	public void deleteDoctor(DoctorTO doctor) {
+		DoctorEntity doctorDelete = DoctorTOMapper.mapDoctorTO(doctor);
+		doctorRepository.delete(doctorDelete);
 	}
 }
