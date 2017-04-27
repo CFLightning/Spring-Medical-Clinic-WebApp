@@ -3,7 +3,6 @@ import {Component, OnInit} from '@angular/core';
 import {PatientService} from '../patient.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import {List} from "lodash";
 
 @Component({
   selector: 'patient-overview',
@@ -11,7 +10,7 @@ import {List} from "lodash";
   providers: [PatientService]
 } as Component)
 export class PatientOverviewComponent implements OnInit {
-  public currentPatients: Observable<List<Patient>>;
+  public currentPatients: Observable<Patient[]>;
 
   constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }

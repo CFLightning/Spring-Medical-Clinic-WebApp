@@ -10,7 +10,9 @@ export class PatientService {
 
   findAllPatients(): Observable<Patient[]> {
     return this.http.get('http://localhost:8080/patient/all')
-      .map((res: Response) => res.json().data as Patient[]);
+      .map((res: Response) => {
+        return res.json() as Patient[];
+      });
   }
 
  createPatient(name: string): Promise<Patient[]> {
