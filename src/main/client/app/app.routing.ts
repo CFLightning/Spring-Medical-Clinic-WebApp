@@ -8,18 +8,6 @@ import {LoginComponent} from './login/login.component';
 
 const appRoutes: Routes = [
   {
-    path: 'book-mgmt/books',
-    component: BookOverviewComponent
-  },
-  {
-    path: 'book-mgmt/book',
-    component: BookDetailsComponent
-  },
-  {
-    path: 'book-mgmt/book/:bookId',
-    component: BookDetailsComponent
-  },
-  {
     path: 'patient-mgmt/patients',
     component: PatientOverviewComponent,
     resolve: {
@@ -36,7 +24,7 @@ const appRoutes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/book-mgmt/books',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ] as Routes;
