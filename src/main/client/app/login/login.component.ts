@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {LoginService} from './login.service';
 
 @Component({
   selector: 'login',
-  template: require('./login.component.html!text')
-} as Component)
+  template: require('./login.component.html!text'),
+  providers: [LoginService]
+}as Component)
+
+
 export class LoginComponent implements OnInit {
 
-  constructor() {
+  constructor(public router: Router, private loginService: LoginService) {
   }
 
-  ngOnInit(): void {
+  login(event, username, password) {
+    event.preventDefault();
+    this.loginService.login(username, password)
+      .subscribe(
+        response => {
+          localStorage.setItem('token', response.access_token);
+          this.router.navigateByUrl('/home');
+        },
+        error => {
+          alert(error);
+        }
+      );
   }
+  ngOnInit(): void {}
 }
+
+
+
 
