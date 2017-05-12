@@ -21,25 +21,22 @@ export class LoginService {
     params.set('client_secret', this.clientSecret);
     params.set('grant_type', 'password');
 
-    return this.http.get(this.OauthLoginEndPointUrl, {
-      search: params
-    }).map(this.handleData)
-      .catch(this.handleError);
+    return this.http.post('services/login', {});
   }
 
-  private handleData(res: Response) {
-    let body = res.json();
-    return body;
-  }
-
-  private handleError(error: any) {
-    // In a real world app, we might use a remote logging infrastructure
-    // We'd also dig deeper into the error to get a better message
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
-  }
+  // private handleData(res: Response) {
+  //   let body = res.json();
+  //   return body;
+  // }
+  //
+  // private handleError(error: any) {
+  //   // In a real world app, we might use a remote logging infrastructure
+  //   // We'd also dig deeper into the error to get a better message
+  //   let errMsg = (error.message) ? error.message :
+  //     error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+  //   console.error(errMsg); // log to console instead
+  //   return Observable.throw(errMsg);
+  // }
 
   public logout() {
     localStorage.removeItem('token');
