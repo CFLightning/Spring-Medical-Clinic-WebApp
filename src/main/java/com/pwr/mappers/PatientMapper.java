@@ -14,6 +14,9 @@ public final class PatientMapper { //Automatyczne mappery
 		patient.setId(patientEntity.getId());
 		patient.setName(patientEntity.getName());
 		patient.setSurname(patientEntity.getSurname());
+		patient.setPesel(patientEntity.getPesel());
+		patient.setEmail(patientEntity.getEmail());
+		patient.setPolicyNum(patientEntity.getPolicyNum());
 		return patient;
 	}
 

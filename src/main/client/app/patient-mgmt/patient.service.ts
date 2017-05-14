@@ -9,7 +9,7 @@ import 'rxjs/add/operator/toPromise';
 export class PatientService {
 
   findAllPatients(): Observable<Patient[]> {
-    return this.http.get('http://localhost:8080/patient/all')
+    return this.http.get('http://localhost:8080/services/patient/all')
       .map((res: Response) => {
         return res.json() as Patient[];
       });

@@ -14,6 +14,9 @@ public final class PatientTOMapper {
 		patient.setId(patientUpdate.getId());
 		patient.setName(patientUpdate.getName());
 		patient.setSurname(patientUpdate.getSurname());
+		patient.setPesel(patientUpdate.getPesel());
+		patient.setEmail(patientUpdate.getEmail());
+		patient.setPolicyNum(patientUpdate.getPolicyNum());
 		return patient;
 	}
 }
