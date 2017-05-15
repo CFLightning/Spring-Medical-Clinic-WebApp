@@ -15,7 +15,10 @@ export class PatientService {
         return res.json() as Patient[];
       });
   }
-
+  deletePatient(id: number): any {
+    console.log("button click");
+    return this.http.delete('http://localhost:8080/services/patient/' + id);
+  }
   // createPatient(patient: Patient): Observable<Patient> {
   //     return this.http.post('http://localhost:8080/services/patient/create');
   // }

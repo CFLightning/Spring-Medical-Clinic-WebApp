@@ -13,6 +13,7 @@
         <td>{{patient.id}}</td>
         <td>{{patient.name}}</td>
         <td>{{patient.surname}}</td>
+        <td style="width:50px"><button (click)="deletePatient(patient.id)">Delete</button></td>
       </tr>
       </tbody>
     </table>

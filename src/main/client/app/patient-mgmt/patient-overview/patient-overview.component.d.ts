@@ -9,4 +9,5 @@ export declare class PatientOverviewComponent implements OnInit {
     currentPatients: Observable<Patient[]>;
     constructor(patientService: PatientService, route: ActivatedRoute);
     ngOnInit(): void;
+    deletePatient(id: number): void;
 }

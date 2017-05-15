@@ -6,6 +6,6 @@ import 'rxjs/add/operator/toPromise';
 export declare class PatientService {
     private http;
     findAllPatients(): Observable<Patient[]>;
-    createPatient(name: string): Promise<Patient[]>;
+    deletePatient(id: number): any;
     constructor(http: Http);
 }

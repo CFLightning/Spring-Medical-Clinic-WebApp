@@ -45,12 +45,11 @@ public class PatientController {
 		return patient; //lista doktorów, wybierasz doktora w Angularze, podać PUT ENCJĘ nie id
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
+	@RequestMapping(value = "{id}", method = RequestMethod.OPTIONS) //Działa DELETE, usuwa wybranego pacjenta po ID
 	@ResponseBody
-	public PatientTO deletePatient(@PathVariable Long id, @RequestBody PatientTO patient)
+	public void deletePatient(@PathVariable Long id, @RequestBody PatientTO patient)
 	{
 		patientService.deletePatient(patient);
-		return null;
 	}
 
 }
