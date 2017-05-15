@@ -3,16 +3,12 @@ package com.pwr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.pwr.model.PatientTO;
 import com.pwr.service.IPatientService;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(path = "services/patient")
@@ -21,6 +17,11 @@ public class PatientController {
 
 	@Autowired
 	private IPatientService patientService;
+
+	@ModelAttribute
+	public void setVaryResponseHeader(HttpServletResponse response) {
+		response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+	}
 
 	//@CrossOrigin - z tym headerem działa w chrome, bez niego nie, proxy nie daje wyników
 	@RequestMapping(path = "all", method = RequestMethod.GET)
