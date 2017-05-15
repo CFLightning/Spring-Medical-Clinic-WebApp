@@ -23,7 +23,6 @@ public class PatientController {
 		response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
 	}
 
-	//@CrossOrigin - z tym headerem działa w chrome, bez niego nie, proxy nie daje wyników
 	@RequestMapping(path = "all", method = RequestMethod.GET)
 	public List<PatientTO> findAllPatients() {
 		return patientService.findAllPatients();
