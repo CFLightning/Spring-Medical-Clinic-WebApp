@@ -18,7 +18,6 @@ export class PatientService {
       });
   }
 
-
   createPatient(patient: Patient): void {
     let header = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: header});

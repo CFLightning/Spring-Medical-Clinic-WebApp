@@ -1,5 +1,11 @@
 <section class="patient-creator container">
-  <form #patientForm="ngForm" (ngSubmit)="createPatient()" [class.ng-submitted]="submitted" novalidate>
-
+  <form #registerForm="ngForm" (ngSubmit)="createPatient()" [class.ng-submitted]="submitted" novalidate>
+    <div class="form-group row" [class.has-danger]="isFieldInvalid('nameField')">
+      <label for="name" class="col-lg-1 col-form-label">Name:</label>
+      <div class="col-lg-4">
+        <input id="title" name="nameField" type="text" [{ngModel}]="currentPatient.name"
+               class="form-control form-control-danger" required maxlength="20">
+      </div>
+    </div>
   </form>
 </section>
