@@ -1,10 +1,10 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {BookDetailsComponent} from './book-mgmt/book-details/book-details.component';
 import {PatientOverviewComponent} from './patient-mgmt/patient-overview/patient-overview.component';
 import {PatientResolver} from './patient-mgmt/patient-resolver';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
+import {PatientCreatorComponent} from "./patient-mgmt/patient-creator/patient-creator.component";
 
 const appRoutes: Routes = [
   {
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'patient-mgmt/patient',
-    component: BookDetailsComponent
+    component: PatientCreatorComponent
   },
   {
     path: '',

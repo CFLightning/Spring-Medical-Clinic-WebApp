@@ -19,12 +19,12 @@ export class PatientOverviewComponent implements OnInit {
     this.currentPatients = this.route.snapshot.data['patients'];
   }
 
-  deletePatient(id: number): void {
-    this.patientService.deletePatient(id)
-      .subscribe(() => {
-        console.log("Http response received");
-      });
-  }
+  //deletePatient(id: number): void {
+  //  this.patientService.deletePatient(id)
+  //    .subscribe(() => {
+  //      console.log("Http response received");
+  //    });
+ // }
 }
 
 

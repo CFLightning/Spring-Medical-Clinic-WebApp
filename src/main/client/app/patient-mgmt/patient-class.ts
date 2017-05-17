@@ -7,7 +7,7 @@ export class Patient {
   private _email: string;
   private _policyNum: string;
 
-  constructor(ids: number, names: string, surnames: string, pesels: string,  emails: string, policyNums: string) {
+  constructor(ids?: number, names?: string, surnames?: string, pesels?: string,  emails?: string, policyNums?: string) {
     this._id = ids;
     this._name = names;
     this._surname = surnames;

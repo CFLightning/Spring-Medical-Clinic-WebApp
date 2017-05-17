@@ -1,13 +1,12 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
-import {AbstractControl, NgForm} from "@angular/forms";
-import {Patient} from "../../../../../../bin/src/main/client/app/patient-mgmt/patient-class";
-import {PatientService} from "../../../../../../bin/src/main/client/app/patient-mgmt/patient.service";
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {AbstractControl, NgForm, ReactiveFormsModule} from "@angular/forms";
+import {Patient} from "../patient-class";
+import {PatientService} from "../patient.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'patient-creator',
-  template: require('./patient-creator.component.html!text'),
-  styles: [require('patient-creator.component.css!text')]
+  template: require('./patient-creator.component.html!text')
 } as Component)
 export class PatientCreatorComponent implements OnInit {
   @ViewChild('registerForm') currentForm: NgForm;
@@ -62,4 +61,4 @@ export class PatientCreatorComponent implements OnInit {
 
   }
 }
-}
+

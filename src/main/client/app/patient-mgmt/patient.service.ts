@@ -20,14 +20,15 @@ export class PatientService {
 
   createPatient(patient: Patient): void {
     let header = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: header});
-    this.http.post(this.backEndURL + '/create', patient, options);
+    //let options = new RequestOptions({headers: header});
+    patient = new Patient(3, 'Antosz', 'mate', 'email', 'pesel', 'policy')
+    this.http.post(this.backEndURL + '/create', patient);
   }
 
-  deletePatient(id: number): any {
-    console.log("button click");
-    return this.http.delete('http://localhost:8080/services/patient/' + id);
-  }
+ // deletePatient(id: number): any {
+  //  console.log("button click");
+  //  return this.http.delete('http://localhost:8080/services/patient/' + id);
+ // }
 
   constructor(private http: Http) { }
 }
