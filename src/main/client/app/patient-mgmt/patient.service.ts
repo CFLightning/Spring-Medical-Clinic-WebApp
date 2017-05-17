@@ -19,10 +19,14 @@ export class PatientService {
   }
 
   createPatient(patient: Patient): void {
-    let header = new Headers({'Content-Type': 'application/json'});
-    //let options = new RequestOptions({headers: header});
-    patient = new Patient(3, 'Antosz', 'mate', 'email', 'pesel', 'policy')
-    this.http.post(this.backEndURL + '/create', patient);
+    let body = JSON.stringify(patient);
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers: headers});
+    this.http.post(this.backEndURL + '/create', body, options)
+      .map((res:Response) => {
+        return res.json() as Patient[];
+      });
+      //.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
  // deletePatient(id: number): any {
