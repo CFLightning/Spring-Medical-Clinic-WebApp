@@ -40,8 +40,10 @@ export class PatientCreatorComponent implements OnInit {
   createPatient(): void {
     this.submitted = true;
     if (this.currentForm && this.currentForm.form && this.currentForm.form.valid) {
-      this.patientService.createPatient(this.currentPatient);
-      this.router.navigate(['patient-mgmt/patients']);
+      this.patientService.createPatient(this.currentPatient).subscribe(res => {
+        console.log("asd");
+        this.router.navigate(['patient-mgmt/patients']);
+      });
     }
   }
 

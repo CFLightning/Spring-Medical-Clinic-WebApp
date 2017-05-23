@@ -4,7 +4,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import {RequestOptions} from "http";
 
 @Injectable()
 export class PatientService {
@@ -18,15 +17,8 @@ export class PatientService {
       });
   }
 
-  createPatient(patient: Patient): void {
-    let body = JSON.stringify(patient);
-    let headers = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers: headers});
-    this.http.post(this.backEndURL + '/create', body, options)
-      .map((res:Response) => {
-        return res.json() as Patient[];
-      });
-      //.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  createPatient(patient: Patient):Observable<any> {
+    return this.http.post(this.backEndURL + '/create', patient);
   }
 
  // deletePatient(id: number): any {
