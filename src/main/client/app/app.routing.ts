@@ -26,6 +26,10 @@ const appRoutes: Routes = [
     path: 'patient-mgmt/patient',
     component: PatientCreatorComponent
   },
+ // {
+   // path: 'calendar',
+   // component: CalendarComponent
+  //},
   {
     path: '',
     redirectTo: '/login',
