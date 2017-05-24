@@ -1,18 +1,18 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {AbstractControl, NgForm, ReactiveFormsModule} from "@angular/forms";
-import {Patient} from "../patient-class";
-import {PatientService} from "../patient.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Doctor} from "../doctor-class";
+import {DoctorService} from "../doctor.service";
 
 @Component({
-  selector: 'patient-creator',
-  template: require('./patient-creator.component.html!text'),
-  styles: [require('./patient-creator.component.less!text')]
+  selector: 'doctor-creator',
+  template: require('./doctor-creator.component.html!text'),
+  styles: [require('./doctor-creator.component.less!text')]
 } as Component)
-export class PatientCreatorComponent implements OnInit {
+export class DoctorCreatorComponent implements OnInit {
   @ViewChild('registerForm') currentForm: NgForm;
 
-  currentPatient: Patient;
+  currentDoctor: Doctor;
 
   submitted: boolean;
 
@@ -33,16 +33,16 @@ export class PatientCreatorComponent implements OnInit {
     }
   }
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute, private router: Router) {
-    this.currentPatient = new Patient();
+  constructor(private doctorService: DoctorService, private route: ActivatedRoute, private router: Router) {
+    this.currentDoctor = new Doctor();
     this.submitted = false;
   }
 
-  createPatient(): void {
+  createDoctor(): void {
     this.submitted = true;
     if (this.currentForm && this.currentForm.form && this.currentForm.form.valid) {
-      this.patientService.createPatient(this.currentPatient).subscribe(res => {
-        this.router.navigate(['patient-mgmt/patients']);
+      this.doctorService.createDoctor(this.currentDoctor).subscribe(res => {
+        this.router.navigate(['doctor-mgmt/doctors']);
       });
     }
   }
@@ -50,7 +50,7 @@ export class PatientCreatorComponent implements OnInit {
   getErrorMessageOfField(fieldName: string): string {
     if (this.isFieldInvalid(fieldName)) {
       const fieldControl: AbstractControl = this.currentForm.form.get(fieldName);
-      return PatientCreatorComponent.createErrorMessage(fieldControl.errors);
+      return DoctorCreatorComponent.createErrorMessage(fieldControl.errors);
     }
   }
 

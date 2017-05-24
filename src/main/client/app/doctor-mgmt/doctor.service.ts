@@ -20,7 +20,7 @@ export class DoctorService {
     return this.http.post(this.backEndURL + 'create', doctor);
   }
 
-  deletePatient(doctor: Doctor): Observable<any> {
+  deleteDoctor(doctor: Doctor): Observable<any> {
     let options = new RequestOptions({
       body: doctor,
       method: RequestMethod.Delete

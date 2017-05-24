@@ -1,0 +1,21 @@
+<section class="container-fluid">
+  <section>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let doctor of currentDoctors">
+        <td>{{doctor.id}}</td>
+        <td>{{doctor.name}}</td>
+        <td>{{doctor.surname}}</td>
+        <td style="width:50px"><button (click)="deleteDoctor(doctor)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

@@ -25,8 +25,6 @@ public class PatientController {
 		return patientService.findAllPatients();
 	}
 
-	//@Transactional na metodzie - tylko jedna metoda jest transakcyjna
-
 	@RequestMapping(path = "create", method = RequestMethod.POST)
 	public PatientTO createPatient(@RequestBody PatientTO patient)
 	{

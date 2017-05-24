@@ -12,9 +12,10 @@ import {LoginModule} from './login/login.module';
 import {CanActivateViaOAuthGuard} from './_guard/oAuth.guard';
 import {HomeModule} from './home/home.module';
 import {FormsModule} from "@angular/forms";
+import {DoctorMgmtModule} from "./doctor-mgmt/doctor-mgmt.module";
 
 @NgModule({
-  imports: [HttpModule, FormsModule, BrowserModule, HttpModule, HomeModule, LoginModule, BookMgmtModule, PatientMgmtModule, GeneralModule, routing, NgbModule.forRoot()],
+  imports: [HttpModule, FormsModule, BrowserModule, HttpModule, HomeModule, LoginModule, DoctorMgmtModule, PatientMgmtModule, GeneralModule, routing, NgbModule.forRoot()],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
   providers: [PatientService, CanActivateViaOAuthGuard]

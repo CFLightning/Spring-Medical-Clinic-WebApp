@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 import {Doctor} from "./doctor-class";
 import {Observable} from "rxjs/Observable";
+import {DoctorService} from "./doctor.service";
 
 @Injectable()
 export  class  DoctorResolver implements Resolve<Array<Doctor>> {

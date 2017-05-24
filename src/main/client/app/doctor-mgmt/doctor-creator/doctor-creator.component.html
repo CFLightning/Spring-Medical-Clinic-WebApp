@@ -1,0 +1,38 @@
+<section class="doctor-creator container">
+  <form #registerForm="ngForm" (ngSubmit)="createDoctor()" [class.ng-submitted]="submitted" novalidate>
+    <div class="form-group row" [class.has-danger]="isFieldInvalid('nameField')">
+      <label for="name" class="col-lg-1 col-form-label">Name:</label>
+      <div class="col-lg-4">
+        <input id="name" name="nameField" type="text" [(ngModel)]="currentDoctor.name"
+               class="form-control form-control-danger" required maxlength="20">
+      </div>
+      <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('nameField') }}</div>
+    </div>
+
+    <div class="form-group row" [class.has-danger]="isFieldInvalid('surnameField')">
+      <label for="surname" class="col-lg-1 col-form-label">Surname:</label>
+      <div class="col-lg-4">
+        <input id="surname" name="surnameField" type="text" [(ngModel)]="currentDoctor.surname"
+               class="form-control form-control-danger" required maxlength="30">
+      </div>
+      <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('surnameField') }}</div>
+    </div>
+
+    <div class="form-group row" [class.has-danger]="isFieldInvalid('emailField')">
+      <label for="email" class="col-lg-1 col-form-label">Email:</label>
+      <div class="col-lg-4">
+        <input id="email" name="emailField" type="text" [(ngModel)]="currentDoctor.email"
+               class="form-control form-control-danger" required maxlength="30">
+      </div>
+      <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('emailField') }}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </form>
+</section>

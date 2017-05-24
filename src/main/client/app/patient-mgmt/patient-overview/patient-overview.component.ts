@@ -12,7 +12,7 @@ import {Observable} from 'rxjs';
 export class PatientOverviewComponent implements OnInit {
   public currentPatients: Observable<Patient[]>;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute, private router: Router) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
