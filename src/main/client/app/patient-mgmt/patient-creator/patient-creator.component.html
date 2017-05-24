@@ -13,7 +13,7 @@
       <label for="surname" class="col-lg-1 col-form-label">Surname:</label>
       <div class="col-lg-4">
         <input id="surname" name="surnameField" type="text" [(ngModel)]="currentPatient.surname"
-               class="form-control form-control-danger" required maxlength="20">
+               class="form-control form-control-danger" required maxlength="30">
       </div>
       <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('surnameField') }}</div>
     </div>
@@ -31,7 +31,7 @@
       <label for="email" class="col-lg-1 col-form-label">Email:</label>
       <div class="col-lg-4">
         <input id="email" name="emailField" type="text" [(ngModel)]="currentPatient.email"
-               class="form-control form-control-danger" required maxlength="20">
+               class="form-control form-control-danger" required maxlength="30">
       </div>
       <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('emailField') }}</div>
     </div>

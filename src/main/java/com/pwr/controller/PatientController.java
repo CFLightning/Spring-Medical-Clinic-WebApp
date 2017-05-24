@@ -9,19 +9,16 @@ import com.pwr.model.PatientTO;
 import com.pwr.service.IPatientService;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.Transactional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RequestMapping(path = "services/patient")
-//@Transactional - operacje muszą byc na zasadzie transakcji
+@Transactional // - operacje muszą byc na zasadzie transakcji
 public class PatientController {
 
 	@Autowired
 	private IPatientService patientService;
-
-	@ModelAttribute
-	public void setVaryResponseHeader(HttpServletResponse response) {
-		response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-	}
 
 	@RequestMapping(path = "all", method = RequestMethod.GET)
 	public List<PatientTO> findAllPatients() {
@@ -29,6 +26,7 @@ public class PatientController {
 	}
 
 	//@Transactional na metodzie - tylko jedna metoda jest transakcyjna
+
 	@RequestMapping(path = "create", method = RequestMethod.POST)
 	public PatientTO createPatient(@RequestBody PatientTO patient)
 	{
@@ -44,9 +42,9 @@ public class PatientController {
 		return patient; //lista doktorów, wybierasz doktora w Angularze, podać PUT ENCJĘ nie id
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.OPTIONS) //Działa DELETE, usuwa wybranego pacjenta po ID
+	@RequestMapping(path = "delete", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
 	@ResponseBody
-	public void deletePatient(@PathVariable Long id, @RequestBody PatientTO patient)
+	public void deletePatient(@RequestBody PatientTO patient)
 	{
 		patientService.deletePatient(patient);
 	}

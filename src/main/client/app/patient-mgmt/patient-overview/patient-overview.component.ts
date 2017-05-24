@@ -1,7 +1,7 @@
 import {Patient} from '../patient-class';
 import {Component, OnInit} from '@angular/core';
 import {PatientService} from '../patient.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -12,19 +12,19 @@ import {Observable} from 'rxjs';
 export class PatientOverviewComponent implements OnInit {
   public currentPatients: Observable<Patient[]>;
 
-  constructor(private patientService: PatientService, private route: ActivatedRoute) {
+  constructor(private patientService: PatientService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
     this.currentPatients = this.route.snapshot.data['patients'];
   }
 
-  //deletePatient(id: number): void {
-  //  this.patientService.deletePatient(id)
-  //    .subscribe(() => {
-  //      console.log("Http response received");
-  //    });
- // }
+  deletePatient(patient: Patient): void {
+    this.patientService.deletePatient(patient)
+      .subscribe(res => {
+        location.reload();
+      });
+  }
 }
 
 
