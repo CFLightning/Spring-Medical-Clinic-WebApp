@@ -11,8 +11,10 @@ public final class DoctorMapper {
 	
 	public static DoctorTO mapDoctor(DoctorEntity doctorEntity) {
 		DoctorTO doctor = new DoctorTO();
+		doctor.setId(doctorEntity.getId());
 		doctor.setName(doctorEntity.getName());
 		doctor.setSurname(doctorEntity.getSurname());
+		doctor.setEmail(doctorEntity.getEmail());
 		return doctor;
 	}
 	

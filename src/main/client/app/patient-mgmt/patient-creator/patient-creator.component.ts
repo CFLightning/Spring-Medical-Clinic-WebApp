@@ -6,7 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'patient-creator',
-  template: require('./patient-creator.component.html!text')
+  template: require('./patient-creator.component.html!text'),
+  styles: [require('./patient-creator.component.less!text')]
 } as Component)
 export class PatientCreatorComponent implements OnInit {
   @ViewChild('registerForm') currentForm: NgForm;

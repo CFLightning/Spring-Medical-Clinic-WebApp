@@ -3,18 +3,17 @@ package com.pwr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.pwr.service.IDoctorService;
 import com.pwr.model.DoctorTO;
 
+import javax.transaction.Transactional;
+
 @RestController
-@RequestMapping(path = "doctor")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
+@RequestMapping(path = "services/doctor")
+@Transactional
 public class DoctorController {
 	
 	@Autowired
@@ -41,12 +40,11 @@ public class DoctorController {
 		return doctor;
 	}
 
-	@RequestMapping(value = "{id}", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego lekarza po ID
+	@RequestMapping(path = "delete", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego lekarza po ID
 	@ResponseBody
-	public DoctorTO deleteDoctor(@PathVariable Long id, @RequestBody DoctorTO doctor)
+	public void deleteDoctor(@RequestBody DoctorTO doctor)
 	{
 		doctorService.deleteDoctor(doctor);
-		return null;
 	}
 	
 }
