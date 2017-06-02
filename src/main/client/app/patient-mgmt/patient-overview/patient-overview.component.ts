@@ -10,7 +10,7 @@ import {Observable} from 'rxjs';
   providers: [PatientService]
 } as Component)
 export class PatientOverviewComponent implements OnInit {
-  public currentPatients: Observable<Patient[]>;
+  public currentPatients: Patient[];
 
   constructor(private patientService: PatientService, private route: ActivatedRoute) {
   }
@@ -22,7 +22,7 @@ export class PatientOverviewComponent implements OnInit {
   deletePatient(patient: Patient): void {
     this.patientService.deletePatient(patient)
       .subscribe(res => {
-        location.reload();
+        this.currentPatients.splice(this.currentPatients.indexOf(patient), 1);
       });
   }
 }
