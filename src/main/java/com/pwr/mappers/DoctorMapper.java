@@ -14,6 +14,7 @@ public final class DoctorMapper {
 		doctor.setId(doctorEntity.getId());
 		doctor.setName(doctorEntity.getName());
 		doctor.setSurname(doctorEntity.getSurname());
+		doctor.setPesel(doctorEntity.getPesel());
 		doctor.setEmail(doctorEntity.getEmail());
 		return doctor;
 	}

@@ -14,6 +14,7 @@ public final class DoctorTOMapper {
 		doctor.setId(doctorUpdate.getId());
 		doctor.setName(doctorUpdate.getName());
 		doctor.setSurname(doctorUpdate.getSurname());
+		doctor.setPesel(doctorUpdate.getPesel());
 		doctor.setEmail(doctorUpdate.getEmail());
 		return doctor;
 	}

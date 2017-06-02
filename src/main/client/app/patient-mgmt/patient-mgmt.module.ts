@@ -14,5 +14,6 @@ import {PatientCreatorComponent} from "./patient-creator/patient-creator.compone
   exports: [PatientOverviewComponent, PatientCreatorComponent],
   providers: [PatientService, PatientResolver]
 } as NgModule)
+
 export class PatientMgmtModule {
 }

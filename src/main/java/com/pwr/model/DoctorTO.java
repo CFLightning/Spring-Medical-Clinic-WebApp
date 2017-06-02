@@ -5,6 +5,7 @@ public class DoctorTO {
 	private Long id;
 	private String name;
 	private String surname;
+	private String pesel;
 	private String email;
 	
 	public String getName() {
@@ -37,5 +38,13 @@ public class DoctorTO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPesel() {
+		return pesel;
+	}
+
+	public void setPesel(String pesel) {
+		this.pesel = pesel;
 	}
 }

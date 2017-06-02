@@ -16,6 +16,8 @@ public class DoctorEntity {
 	@Column
 	private String surname;
 	@Column
+	private String pesel;
+	@Column
 	private String email;
 
 	public Long getId() {
@@ -50,4 +52,11 @@ public class DoctorEntity {
 		this.email = email;
 	}
 
+	public String getPesel() {
+		return pesel;
+	}
+
+	public void setPesel(String pesel) {
+		this.pesel = pesel;
+	}
 }
