@@ -8,6 +8,7 @@ import {PatientCreatorComponent} from "./patient-mgmt/patient-creator/patient-cr
 import {DoctorOverviewComponent} from "./doctor-mgmt/doctor-overview/doctor-overview.component";
 import {DoctorResolver} from "./doctor-mgmt/doctor-resolver";
 import {DoctorCreatorComponent} from "./doctor-mgmt/doctor-creator/doctor-creator.component";
+import {VisitRegisterComponent} from "./visit-mgmt/visit-register/visit-register.component";
 
 const appRoutes: Routes = [
   {
@@ -39,6 +40,14 @@ const appRoutes: Routes = [
   {
     path: 'doctor-mgmt/doctor',
     component: DoctorCreatorComponent
+  },
+  {
+    path: 'visit-mgmt/register',
+    component: VisitRegisterComponent,
+    resolve: {
+      doctors: DoctorResolver,
+      patients: PatientResolver
+    }
   },
  // {
    // path: 'calendar',

@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 import {DoctorService} from "./doctor.service";
 
 @Injectable()
-export  class  DoctorResolver implements Resolve<Array<Doctor>> {
+export  class DoctorResolver implements Resolve<Array<Doctor>> {
 
   constructor(private backend: DoctorService) {
   }

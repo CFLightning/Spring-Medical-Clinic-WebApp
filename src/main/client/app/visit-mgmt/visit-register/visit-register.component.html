@@ -1,0 +1,22 @@
+<section class="visit-register container">
+  <form #registerForm="ngForm" (ngSubmit)="registerVisit()" [class.ng-submitted]="submitted" novalidate>
+    <div class="form-group row">
+      <label for="doctor" class="col-lg-1 col-form-label">Doctor:</label>
+      <div class="col-lg-4">
+        <select [(ngModel)]="currentVisit.doctor" name="doctorCombobox">
+          <option *ngFor="let doctor of doctors" [ngValue]="doctor.id">{{doctor.surname}}, {{doctor.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="patient" class="col-lg-1 col-form-label">Patient:</label>
+      <div class="col-lg-4">
+        <select [(ngModel)]="currentVisit.patient" name="patientCombobox">
+          <option *ngFor="let patient of patients" [ngValue]="patient.id">{{patient.surname}}, {{patient.name}}</option>
+        </select>
+      </div>
+    </div>
+
+  </form>
+</section>
