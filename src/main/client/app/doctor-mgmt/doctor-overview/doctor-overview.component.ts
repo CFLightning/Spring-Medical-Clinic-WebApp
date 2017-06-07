@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {DoctorService} from "../doctor.service";
-import {Observable} from "rxjs/Observable";
 import {Doctor} from "../doctor-class";
 import {ActivatedRoute} from "@angular/router";
 
@@ -10,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   providers: [DoctorService]
 } as Component)
 export class DoctorOverviewComponent implements OnInit {
-  public currentDoctors: Observable<Doctor[]>;
+  public currentDoctors: Doctor[];
 
   constructor(private doctorService: DoctorService, private route: ActivatedRoute) {
   }
@@ -22,7 +21,7 @@ export class DoctorOverviewComponent implements OnInit {
   deleteDoctor(doctor: Doctor): void {
     this.doctorService.deleteDoctor(doctor)
       .subscribe(res => {
-        location.reload();
+        this.currentDoctors.splice(this.currentDoctors.indexOf(doctor), 1);
       });
   }
 }

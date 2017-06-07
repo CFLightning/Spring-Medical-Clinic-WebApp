@@ -4,8 +4,9 @@ import {Visit} from "../visit-class";
 import {Doctor} from "../../doctor-mgmt/doctor-class";
 import {DoctorService} from "../../doctor-mgmt/doctor.service";
 import {PatientService} from "../../patient-mgmt/patient.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Patient} from "../../patient-mgmt/patient-class";
+import {VisitService} from "../visit.service";
 
 @Component({
   selector: 'visit-register',
@@ -18,13 +19,24 @@ export class VisitRegisterComponent implements OnInit {
   currentVisit: Visit;
   doctors: Doctor[];
   patients: Patient[];
+  submitted: boolean;
 
   ngOnInit(): void {
      this.doctors = this.route.snapshot.data['doctors'];
      this.patients = this.route.snapshot.data['patients'];
   }
 
-  constructor(private patientService: PatientService, private doctorService: DoctorService, private route: ActivatedRoute) {
+  registerVisit(): void {
+    this.submitted = true;
+    if (this.currentForm && this.currentForm.form && this.currentForm.form.valid) {
+      this.visitService.registerVisit(this.currentVisit).subscribe(res => {
+        //this.router.navigate(['patient-mgmt/patients']);
+      });
+    }
+  }
+
+  constructor(private patientService: PatientService, private doctorService: DoctorService, private visitService: VisitService, private route: ActivatedRoute, private router: Router) {
     this.currentVisit = new Visit();
+    this.submitted = false;
   }
 }

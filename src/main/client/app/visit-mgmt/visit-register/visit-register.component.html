@@ -4,7 +4,7 @@
       <label for="doctor" class="col-lg-1 col-form-label">Doctor:</label>
       <div class="col-lg-4">
         <select [(ngModel)]="currentVisit.doctor" name="doctorCombobox">
-          <option *ngFor="let doctor of doctors" [ngValue]="doctor.id">{{doctor.surname}}, {{doctor.name}}</option>
+          <option *ngFor="let doctor of doctors" [ngValue]="doctor">{{doctor.surname}}, {{doctor.name}}</option>
         </select>
       </div>
     </div>
@@ -13,10 +13,41 @@
       <label for="patient" class="col-lg-1 col-form-label">Patient:</label>
       <div class="col-lg-4">
         <select [(ngModel)]="currentVisit.patient" name="patientCombobox">
-          <option *ngFor="let patient of patients" [ngValue]="patient.id">{{patient.surname}}, {{patient.name}}</option>
+          <option *ngFor="let patient of patients" [ngValue]="patient">{{patient.surname}}, {{patient.name}}</option>
         </select>
       </div>
     </div>
+     <!--TODO: PRZEROBIC-->
+    <div class="form-group row">
+      <label for="hour" class="col-lg-1 col-form-label">Hour:</label>
+      <div class="col-lg-4">
+        <input id="hour" name="hourField" type="text" [(ngModel)]="currentVisit.hour"
+               class="form-control form-control-danger" required maxlength="5">
+      </div>
+    </div>
 
+    <div class="form-group row">
+      <label for="date" class="col-lg-1 col-form-label">Date:</label>
+      <div class="col-lg-4">
+        <input id="date" name="dateField" type="text" [(ngModel)]="currentVisit.date"
+               class="form-control form-control-danger" required maxlength="10">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="examination" class="col-lg-1 col-form-label">Examination:</label>
+      <div class="col-lg-4">
+        <input id="pesel" name="examinationField" type="text" [(ngModel)]="currentVisit.examination"
+               class="form-control form-control-danger" required maxlength="30">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </div>
   </form>
 </section>

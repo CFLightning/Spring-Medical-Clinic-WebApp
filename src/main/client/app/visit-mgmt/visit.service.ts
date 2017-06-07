@@ -11,5 +11,9 @@ export class VisitService {
     return ;
   }
 
+  registerVisit(visit: Visit): Observable<any> {
+    return this.http.post(this.backEndURL + 'create', visit);
+  }
+
   constructor(private http: Http) { }
 }

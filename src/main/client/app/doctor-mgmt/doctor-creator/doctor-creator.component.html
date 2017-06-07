@@ -22,7 +22,7 @@
       <label for="pesel" class="col-lg-1 col-form-label">Pesel:</label>
       <div class="col-lg-4">
         <input id="pesel" name="peselField" type="text" [(ngModel)]="currentDoctor.pesel"
-               class="form-control form-control-danger" required maxlength="30">
+               class="form-control form-control-danger" required maxlength="11">
       </div>
       <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('peselField') }}</div>
     </div>
