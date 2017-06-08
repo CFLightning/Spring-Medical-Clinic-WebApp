@@ -3,6 +3,7 @@ import {Observable} from "rxjs/Observable";
 import {Doctor} from "./doctor-class";
 import {Http, RequestMethod, RequestOptions, Response} from "@angular/http";
 import 'rxjs/add/operator/map';
+import {Token} from "../token";
 
 @Injectable()
 export class DoctorService {
@@ -10,14 +11,14 @@ export class DoctorService {
   private backEndURL = 'http://localhost:8080/services/doctor/';
 
   findAllDoctors(): Observable<Doctor[]> {
-    return this.http.get(this.backEndURL + 'all')
+    return this.http.get(this.backEndURL + 'all', Token.getOptionHeaderWithToken())
       .map((res: Response) => {
         return res.json() as Doctor[];
       })
   }
 
   createDoctor(doctor: Doctor): Observable<any> {
-    return this.http.post(this.backEndURL + 'create', doctor);
+    return this.http.post(this.backEndURL + 'create', doctor, Token.getOptionHeaderWithToken());
   }
 
   deleteDoctor(doctor: Doctor): Observable<any> {

@@ -3,6 +3,7 @@ package com.pwr.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.pwr.model.PatientTO;
@@ -20,11 +21,13 @@ public class PatientController {
 	@Autowired
 	private IPatientService patientService;
 
+	@PreAuthorize("#oauth2.hasScope('read')")
 	@RequestMapping(path = "all", method = RequestMethod.GET)
 	public List<PatientTO> findAllPatients() {
 		return patientService.findAllPatients();
 	}
 
+	@PreAuthorize("#oauth2.hasScope('read')")
 	@RequestMapping(path = "create", method = RequestMethod.POST)
 	public PatientTO createPatient(@RequestBody PatientTO patient)
 	{
@@ -32,6 +35,7 @@ public class PatientController {
 		return patient;
 
 	}
+	@PreAuthorize("#oauth2.hasScope('read')")
 	@RequestMapping(value = "{id}", method = RequestMethod.PUT) //Działa PUT, zmienia dane wybranego pacjenta po ID
 	@ResponseBody
 	public PatientTO updatePatient(@PathVariable Long id, @RequestBody PatientTO patient)
@@ -39,7 +43,6 @@ public class PatientController {
 		patientService.updatePatient(patient); //nie podajemy id w URL 
 		return patient; //lista doktorów, wybierasz doktora w Angularze, podać PUT ENCJĘ nie id
 	}
-
 	@RequestMapping(path = "delete", method = RequestMethod.DELETE) //Działa DELETE, usuwa wybranego pacjenta po ID
 	@ResponseBody
 	public void deletePatient(@RequestBody PatientTO patient)
