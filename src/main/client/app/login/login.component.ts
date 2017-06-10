@@ -1,9 +1,11 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit, ViewChild} from '@angular/core';
 import {Cookie} from "../cookie";
 import {Http, Response} from '@angular/http';
 import {Token} from "../token";
 import {Router} from "@angular/router";
 import 'rxjs/add/operator/catch';
+import {User} from "./user-class";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'login',
@@ -11,15 +13,22 @@ import 'rxjs/add/operator/catch';
   // providers: [LoginService]
 }as Component)
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  @ViewChild('loginForm') currentForm: NgForm;
+
+  currentUser: User;
+
+  submitted: boolean;
 
   constructor(private http: Http, private router: Router) {
+    this.currentUser = new User();
+    this.submitted = false;
   }
 
   public getToken(): void {
-    Token.getToken('admin', 'admin', this.http)
+    Token.getToken(this.currentUser.username, this.currentUser.password, this.http)
       .catch(() => {
-        console.log('exc');
+        console.log('error');
         return null;
       })
       .subscribe((res: Response) => {
@@ -27,12 +36,4 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/patient-mgmt/patient']);
       });
   }
-
-  ngOnInit(): void {
-    console.log("TEST");
-  }
 }
-
-
-
-

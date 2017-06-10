@@ -30,11 +30,11 @@ public class ResourceServerSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 //              <------------ Prawdopodobne zapytanie potrzebne do pobierania stworzonego uzytkownika z database ----->
-//
+//        auth
 //                .jdbcAuthentication()
 //                .usersByUsernameQuery("select username,password, enabled from users where username=?")
 //                .authoritiesByUsernameQuery("select username, role from user_roles where username=?");
-
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

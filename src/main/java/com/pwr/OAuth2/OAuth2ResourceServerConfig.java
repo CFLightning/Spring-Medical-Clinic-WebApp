@@ -35,6 +35,15 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
     @Override
     public void configure(final HttpSecurity http) throws Exception {
+//        http
+//                .csrf().disable()
+//                .anonymous().disable()
+//                .requestMatchers().antMatchers("/user/**")
+//                .and().authorizeRequests()
+//                .antMatchers("/user/**").access("hasRole('read')")
+//                .and().exceptionHandling();
+
+
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and().authorizeRequests()
                 .anyRequest().permitAll();
 

@@ -1,31 +1,29 @@
-<!--<h1>Login</h1>-->
-  <!--<form role="form" (submit)="login(username.value, password.value)">-->
-    <!--<div class="form-group">-->
-      <!--<label for="username">Username</label>-->
-      <!--<input type="text" #username class="form-control" id="username" placeholder="Username">-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<label for="password">Password</label>-->
-      <!--<input type="password" #password class="form-control" id="password" placeholder="Password">-->
-    <!--</div>-->
-    <!--<button type="submit" class="btn btn-default">Submit</button>-->
-  <!--</form>-->
-
-
-
-
-
-
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h1 class="text-center">Witamy!</h1>
+<section class="login container">
+  <form #loginForm="ngForm" (ngSubmit)="getToken()" [class.ng-submitted]="submitted" novalidate>
+    <div class="form-group row">
+      <label for="username" class="col-lg-1 col-form-label">Username:</label>
+      <div class="col-lg-4">
+        <input id="username" name="usernameField" type="text" [(ngModel)]="currentUser.username"
+               class="form-control form-control-danger" required maxlength="20">
+      </div>
     </div>
-    <button role="form" (click)="getToken()">
-      TEST
-    </button>
-  </div>
-</div>
+
+    <div class="form-group row">
+      <label for="password" class="col-lg-1 col-form-label">Password:</label>
+      <div class="col-lg-4">
+        <input id="password" name="passwordField" type="password" [(ngModel)]="currentUser.password"
+               class="form-control form-control-danger" required maxlength="20">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </div>
+
+  </form>
+</section>
 
 
 <!--<div class="modal-dialog">-->
@@ -33,20 +31,8 @@
 <!--<div class="modal-header">-->
 <!--<h1 class="text-center">Witamy!</h1>-->
 <!--</div>-->
-<!--<form role="form" (submit)="login($event, username.value, password.value)">-->
-<!--<div class="modal-body">-->
-<!--<div class="form-group">-->
-<!--<input type="text" #username class="form-control input-lg" placeholder="Username"/>-->
-<!--</div>-->
-
-<!--<div class="form-group">-->
-<!--<input type="password" #password class="form-control input-lg" placeholder="Password"/>-->
-<!--</div>-->
-
-<!--<div class="form-group">-->
-<!--<input type="submit" class="btn btn-block btn-lg btn-primary" value="Login"/>-->
-<!--</div>-->
-<!--</div>-->
-<!--</form>-->
+<!--<button role="form" (click)="getToken()">-->
+<!--TEST-->
+<!--</button>-->
 <!--</div>-->
 <!--</div>-->
